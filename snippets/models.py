@@ -16,7 +16,7 @@ class Snippet(models.Model):
     linenos=models.BooleanField(default=False)
     language=models.CharField(choices=LANGUAGE_CHOICES,max_length=100,default='python')
     style=models.CharField(choices=STYLE_CHOICES,max_length=100,default='friendly')
-    owners=models.ForeignKey('auth.User',related_name='snippets')
+    owner=models.ForeignKey('auth.User',related_name='snippets')
     highlighted=models.TextField()
     class Meta:
         ordering=("created",)
